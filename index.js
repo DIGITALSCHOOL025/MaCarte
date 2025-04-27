@@ -37,7 +37,7 @@ app.post('/pay', async (req, res) => {
       customer_city: "Ville",
       customer_country: country,
       customer_state: "Etat",
-      channels: "MOBILE_MONEY",
+      channels: "ALL",
       notify_url: NOTIFY_URL,
       return_url: RETURN_URL,
       cancel_url: CANCEL_URL,
