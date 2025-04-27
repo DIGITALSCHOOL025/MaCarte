@@ -47,7 +47,7 @@ app.post('/pay', async (req, res) => {
     res.json({ url: response.data.data.payment_url });
   } catch (error) {
     console.error('Erreur paiement:', error.response ? error.response.data : error.message);
-    res.status(500).json({ message: 'Erreur lors de l\'initialisation du paiement.' });
+    res.status(500).json({ message: 'Erreur lors de l\'initialisation du paiement.', details: error.response?.data || error.message });
   }
 });
 
