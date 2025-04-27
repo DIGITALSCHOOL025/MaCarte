@@ -14,7 +14,7 @@ const CINETPAY_URL = MODE === 'test'
   ? 'https://api-checkout.cinetpay.com/v2/payment' 
   : 'https://api-checkout.cinetpay.com/v2/payment';
 
-const NOTIFY_URL = 'https://macarte.onrender.com/notify';
+const NOTIFY_URL = 'https://paiement-8fw3.onrender.com/notify';
 const RETURN_URL = 'https://digitalschool025.systeme.io/413723d5';
 const CANCEL_URL = 'https://digitalschool025.systeme.io/baae8ba1';
 
