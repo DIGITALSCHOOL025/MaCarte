@@ -1,0 +1,19 @@
+{
+  "name": "cinetpay-backend",
+  "version": "1.0.0",
+  "description": "Serveur backend Node.js pour intégrer CinetPay avec Systeme.io",
+  "main": "index.js", // Fichier principal : index.js
+  "scripts": {
+    "start": "node index.js" // Commande pour démarrer automatiquement sur Render
+  },
+  "dependencies": {
+    "axios": "^1.6.0", // Bibliothèque pour envoyer des requêtes HTTP
+    "cors": "^2.8.5",  // Pour activer CORS
+    "express": "^4.18.2" // Framework pour créer le serveur
+  },
+  "engines": {
+    "node": ">=14.0.0" // Demande au minimum Node 14
+  },
+  "author": "Ton Nom Ici",
+  "license": "ISC"
+}
