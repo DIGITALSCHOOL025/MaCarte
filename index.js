@@ -7,11 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Mode: 'test' ou 'production'
-const MODE = 'test'; // Change simplement en 'production' après KYC validé
+const MODE = 'test'; // change à 'production' après KYC validé
 
-const CINETPAY_URL = MODE === 'test' 
-  ? 'https://api-checkout.cinetpay.com/v2/payment' 
+const CINETPAY_URL = MODE === 'test'
+  ? 'https://api-checkout.cinetpay.com/v2/payment'
   : 'https://api-checkout.cinetpay.com/v2/payment';
 
 const NOTIFY_URL = 'https://paiement-8fw3.onrender.com/notify';
@@ -21,6 +20,12 @@ const CANCEL_URL = 'https://digitalschool025.systeme.io/baae8ba1';
 app.post('/pay', async (req, res) => {
   const { amount, customer_name, customer_surname, customer_email, customer_phone, country, mobile } = req.body;
 
+  // Contrôler et forcer les bonnes valeurs
+  const validatedCountry = (country || 'CD').toUpperCase(); // Par défaut RDC si non fourni
+  const validatedChannel = ['ALL', 'MOBILE_MONEY', 'WALLET', 'CREDIT_CARD'].includes(mobile)
+    ? mobile
+    : 'MOBILE_MONEY'; // Force MOBILE_MONEY si erreur
+
   try {
     const response = await axios.post(CINETPAY_URL, {
       apikey: process.env.CINETPAY_API_KEY,
@@ -29,15 +34,15 @@ app.post('/pay', async (req, res) => {
       amount: amount,
       currency: "USD",
       description: "Paiement de la formation Digital School",
-      customer_name: customer_name,
-      customer_surname: customer_surname,
-      customer_email: customer_email,
+      customer_name: customer_name || "Client",
+      customer_surname: customer_surname || "DigitalSchool",
+      customer_email: customer_email || "client@example.com",
       customer_phone_number: customer_phone,
       customer_address: "Adresse inconnue",
-      customer_city: "Ville",
-      customer_country: country,
+      customer_city: "Kinshasa",
+      customer_country: validatedCountry,
       customer_state: "Etat",
-      channels: "ALL",
+      channels: validatedChannel,
       notify_url: NOTIFY_URL,
       return_url: RETURN_URL,
       cancel_url: CANCEL_URL,
