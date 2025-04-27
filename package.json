@@ -1,20 +1,15 @@
 {
   "name": "cinetpay-backend",
   "version": "1.0.0",
-  "description": "Backend pour gérer les paiements Mobile Money via CinetPay",
+  "description": "Backend pour paiement CinetPay",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "body-parser": "^1.19.0",
-    "node-fetch": "^2.6.1"
-  },
-  "engines": {
-    "node": "14.x"
-  },
-  "author": "",
-  "license": "ISC"
+    "axios": "^1.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2"
+  }
 }
-
