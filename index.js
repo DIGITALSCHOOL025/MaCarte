@@ -17,7 +17,7 @@ const BASE_CINETPAY_URL = 'https://api-checkout.cinetpay.com/v2/payment';
 // URL de redirection après paiement (succès ou échec)
 // !!! Modifier ici pour mettre tes vraies pages Systeme.io
 const RETURN_URL = 'https://ton-lien-systeme-io-page-remerciement'; // Paiement réussi
-const CANCEL_URL = 'https://ton-lien-systeme-io-page-echec'; // Paiement annulé ou échoué
+const CANCEL_URL = 'https://digitalschool025.systeme.io/baae8ba1'; // Paiement annulé ou échoué
 
 // --- Fonction pour générer un ID unique pour chaque transaction ---
 const generateTransactionId = () => {
