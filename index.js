@@ -40,7 +40,7 @@ app.post('/pay', async (req, res) => {
       currency: CURRENCY,
       description: "Paiement sur ma plateforme",
       return_url: RETURN_URL,
-      notify_url: "https://ton-backend-render.onrender.com/notify", // Notification serveur à serveur
+      notify_url: "https://cinetpay-paiement.onrender.com/notify", // Notification serveur à serveur
       cancel_url: CANCEL_URL,
       metadata: "Paiement systeme.io",
       customer_name: customer_name || "client",
